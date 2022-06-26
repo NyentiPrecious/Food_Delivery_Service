@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+:root {
+  --main-font: sans-serif;
+  --font-size: 16px;
+  --main-color: #f7df1e;
+  --second-color: #222;
+  --main-modal-color: rgba(247, 222, 30, 0.85);
+  --second-modal-color: rgba(34, 34, 34, 0.85);
+  --container-width: 1200px;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section {
+  padding: 2rem;
+  padding-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: var(--container-width);
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* **********     SearchFilters     ********** */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background-color: var(--second-color);
+  color: var(--main-color);
+  transition: all 0.3s ease-out;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card figcaption {
+  padding: 1rem;
+}
+
+.filter {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  order: 1;
+}
+
+</style>
+
+<body>
+    <section id="seccion10" class="section">
+        <h2>Filtros de Búsquedas</h2>
+        <input type="search" placeholder="Buscar..." class="card-filter">
+        <article class="cards">
+          <figure class="card">
+            <img src="https://placeimg.com/200/200/nature" alt="Nature">
+            <figcaption>Nature</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://placeimg.com/200/200/any" alt="Any">
+            <figcaption>Any</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://placeimg.com/200/200/tech" alt="Tech">
+            <figcaption>Tech</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://placeimg.com/200/200/animals" alt="Animals">
+            <figcaption>Animals</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://placeimg.com/200/200/people" alt="People">
+            <figcaption>People</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="https://placeimg.com/200/200/arch" alt="Architecture">
+            <figcaption>Architecture</figcaption>
+          </figure>
+        </article>
+      </section>
+
+      <script>
+
+const d = document
+
+d.addEventListener("DOMContentLoaded", (e) =>{
+  searchFilters(".card-filter", ".card");
+});
+
+function searchFilters(input, selector){
+
+  d.addEventListener("keyup", e => {
+    if(e.target.matches(input)){
+      /*  console.log(e.key); */
+
+      if(e.key === "Escape"){
+        e.target.value = ""
+      }
+      d.querySelectorAll(selector).forEach(el => el.textContent.toLowerCase()
+                                           .includes(e.target.value)
+                                           ? el.classList.remove("filter")
+                                           : el.classList.add("filter"))
+    }
+  })
+}
+
+      </script>
+
+</body>
+</html>

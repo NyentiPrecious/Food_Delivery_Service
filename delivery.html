@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?" rel="stylesheet">
+    <title>Delivery</title>
+</head>
+
+<style>
+
+body{
+ background-image:url("http://images.all-free-download.com/images/graphiclarge/nostalgic_blue_background_06_hd_pictures_169782.jpg");
+  background-size:100%;
+  background-repeat:none;
+  
+}
+
+#head{
+  height:50px;
+  width:900px;
+  background-color:none;
+  top:50px;
+  text-size:px;
+  
+}
+#head:hover{
+  opacity:1;
+}
+
+ #head ul li{
+  color:white;
+  list-style:none;
+  float:left;
+   height:50px;
+   width:100px;
+   line-height:50px;
+   text-align:center;
+   font-size:20px;
+   cursor:pointer;
+  
+}
+#head ul li:hover{
+  background-color:black;
+
+}
+
+#option {
+  margin-top:200px;
+  float:left;
+}
+#option h2{
+  color:white;
+  background-color:black;
+  width:200px;
+ height:50px;
+ cursor:pointer;
+  border-radius:25px;
+  line-height:2;
+  text-align:center; 
+  transition:all 0.1s linear;
+}
+#option h2:hover{
+  width:250px;
+  background-color:green;
+  
+}
+#logo{
+  background-image:url("http://3.bp.blogspot.com/-Oz5XdPqGddQ/ULy9zwbIDXI/AAAAAAAAPio/HZwYtIr7DfE/s1600/22-restaurant-logo-design.jpg");
+  height:100px;
+  width:100px;
+  background-attachment:fixed;
+  float:right;
+  border-radius:100%;
+  margin-right:100px;
+  margin-top:-50px;
+}
+
+#book{
+  background-color:white;
+  height:350px;
+  width:400px;
+  margin-top:200px;
+  padding-top:10px;
+  display:none;
+  border-radius:10px;
+  top:200px;
+  left:450px;
+  position:fixed;
+  z-index:2;
+
+  
+}
+#book i{
+  float:right;
+  margin-top:-60px;
+  margin-right:10px;
+  cursor:pointer;
+}
+#book form #button{
+  background-color:black;
+  margin-top:30px;
+  height:50px;
+  width:400px;
+  border:none;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
+}
+
+#book form #button:hover{
+  background-color:green;
+  
+}
+#slider{
+  float:right;
+  margin-top:100px;
+  margin-right:20px;
+  z-index:0;
+}
+#slider img{
+  height:400px;
+  width:700px;
+  
+}
+#time{
+  width:100%;
+  color:white;
+
+
+}
+#time h3{
+  color:white;
+  margin-top:600px;
+font-family: 'Lobster', cursive;
+
+  
+}
+
+</style>
+
+<body>
+    <div id="head">
+        <ul>
+          <li>Home</li>
+           <li>Location</li>
+           <li>Menu</li>
+           <li>Contact</li>
+        </ul>
+        </div>
+      <div id="logo"></div>
+      <br>
+      <br>
+      
+      <div id="option">
+        <h2 onClick="">Place an Order</h2>
+        <h2 onClick="book()">Book a table</h2>
+      </div>
+      <div id="slider"><img class="mySlides" src="http://www.ikea.com/ms/en_KW/img/ikea-food-2015/shrimp-primavera-46.jpg">
+  <img class="mySlides" src="http://www.ikea.com/ms/en_KW/img/ikea-food-2015/ikea-family-offer-32.jpg">
+  <img class="mySlides" src="http://www.ikea.com/ms/en_KW/img/ikea-food-2015/kids-nuggets-8.jpg">
+  <img class="mySlides" src="http://www.ikea.com/ms/en_JO/img/ikea_food/2017/BigFamilyOfferBB-01.jpg">
+    </div>
+      <center><div id="book">
+        <h3>Book Table </h3><i class="material-icons" onclick="oclose()">close</i>
+        <br><br>
+        <form>
+          <table>
+            <tr>
+              <td>Full Name:-</td>
+              <td><input type="text" name="fullname"></td>
+            </tr>
+            <tr>
+              <td>Address:-</td>
+              <td><input type="text" name="address"></td>
+            </tr>
+            <tr>
+              <td>Email:-</td>
+              <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+              <td>Phone Number:-</td>
+              <td><input type="text" name="pnumber"></td>
+            </tr>
+            <tr>
+              <td>Date:-</td>
+              <td><input type="date" name="date">               </td>
+            </tr>
+                <tr>
+              <td>Time:-</td>
+              <td><input type="time" name="time"></td>
+            </tr>
+          </table>
+          <input type="submit" value="Book" name="submit" id="button">
+         
+         </form>
+        </div></center>
+      <center>
+    <div id="time">
+      <h3>
+        Timming 6:30-2:00
+        <br>
+        Tuesday-Monday
+      </h3>
+        </div></center>
+
+        <script>
+
+function book()
+{
+  var a=document.getElementById('book');
+  a.style.display="block";
+
+  
+}
+function oclose()
+{
+  var a=document.getElementById('book');
+  a.style.display="none";
+  
+}
+
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel,2000); // Change image every 2 seconds
+}
+
+        </script>
+
+</body>
+</html>
